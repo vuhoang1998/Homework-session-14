@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ADD</title>
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+</head>
+<body>
+    <div class="w3-container w3-center w3-grey ">
+        <h1>Adding more is not funnnnn</h1>
+
+    </div>
+    <form class= "w3-form w3-container" method ="post" action="{{ url_for("addmore") }}">
+        <div class ="w3-container w3-margin-bottom ">
+            <label for="name">Name : </label>
+            <input type="text" name="name"  class = "w3-border-0 w3-border-bottom"><br><br>
+            <label for="singer" >Singer : </label>
+            <input type="text" name="singer"><br><br>
+            <label for="image">Image : </label>
+            <input type="text" name="image"><br><br>
+            <label for="link">Link : </label>
+            <input type="text" name="link"><br><br>
+            <input type="submit"><br>
+        </div>
+    </form>
+
+</body>
+</html>
+

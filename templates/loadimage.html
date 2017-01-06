@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>UPLoading</title>
+</head>
+<body>
+    {% for unit_ in unit %}
+        <img src="/static/images/{{ unit_.image }}" alt=""/>
+        <h3>{{ unit_.songname }}</h3>
+        <h3>{{ unit_.artists }}</h3>
+        <h3>{{ unit_.link }}</h3>
+    {% endfor %}
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<title>My music list</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">-->
+<link rel="stylesheet" href="../static/w3.css">
+<!--<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karma">-->
+<link rel="stylesheet" href="../static/fontKarma.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Karma", sans-serif}
+.w3-sidenav a {padding:20px}
+</style>
+<body>
+<div class="w3-lgrey">
+<!-- Sidenav (hidden by default) -->
+<nav class="w3-sidenav w3-card-2 w3-top w3-xlarge w3-animate-left " style="display:none;z-index:2;width:40%;min-width:300px" id="mySidenav">
+  <a href="javascript:void(0)" onclick="w3_close()"
+  class="w3-closenav">Close Menu</a>
+  <a href="#food" onclick="w3_close()">My music list</a>
+  <a href="{{url_for("addmore")}}"   onclick="w3_close()"> Add more</a>
+  <a href="{{url_for("edit")}}"     onclick="w3_close()"> Update/Edit</a>
+  <a href="#about" onclick="w3_close()">About</a>
+</nav>
+
+<!-- Top menu -->
+<div class="w3-top w3-red  ">
+  <div class="w3-red w3-padding-xlarge " style="max-width:1200px;margin:auto">
+    <div class="w3-xlarge w3-opennav w3-left w3-hover-text-grey " onclick="w3_open()">☰</div>
+
+    <div class="w3-right w3-xlarge">VH</div>
+    <div class=" w3-center w3-red w3-xlarge">MY MUSIC LIST</div>
+  </div>
+</div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main w3-content w3-padding" style="max-width:1200px;margin-top:100px">
+
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center" id="food">
+    <div class="w3-quarter">
+        <a href="https://www.youtube.com/watch?v=5bgemCaaQkU" target="_blank">
+            <img src="http://c.directlyrics.com/img/upload/0cda0293.jpg" class="w3-hover-opacity" alt="Sandwich" style="width:100%"/> </a>
+      <h3>Fresh eyes</h3>
+      <p>by Andy Grammer</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="https://www.youtube.com/watch?v=lL1_LWbctXU" target="_blank">
+          <img src="https://i1.sndcdn.com/artworks-000082041138-1z868m-t500x500.jpg" class="w3-hover-opacity" alt="Steak" style="width:100%"></a>
+      <h3>Thôi chào iem</h3>
+      <p>by Cam</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="https://www.youtube.com/watch?v=pUjE9H8QlA4" target="_blank">
+          <img src="http://www.edmsauce.com/wp-content/uploads/2014/03/Mr-Probz-Waves-Robin-Schulz-Remix.jpg" class="w3-hover-opacity" alt="Cherries" style="width:100%"></a>
+      <h3>Waves</h3>
+      <p>by Mr Probz</p>
+      <p>Robin Schulz Remix</p>
+    </div>
+    <div class="w3-quarter ">
+        <a href="https://www.youtube.com/watch?v=U07kJZp5b1o" target="_blank">
+        <img src="https://i.ytimg.com/vi/U07kJZp5b1o/maxresdefault.jpg" class="w3-hover-opacity" style="width:100%" height = 272></a>
+      <h3>Cho tôi theo với</h3>
+      <p>by Ngọt</p>
+    </div>
+  </div>
+
+  <!-- Second Photo Grid-->
+  <div class="w3-row-padding w3-padding-16 w3-center">
+    <div class="w3-quarter">
+      <a href="https://www.youtube.com/watch?v=m-M1AtrxztU" target="_blank">
+          <img src="https://i.ytimg.com/vi/jGN79wgDCFM/maxresdefault.jpg" class="w3-hover-opacity" alt="Popsicle" style="width:100%"></a>
+      <h3>Rather be</h3>
+      <p>by Clean Bandit ft. Jess Glynce</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="https://www.youtube.com/watch?v=Ey_hgKCCYU4" target="_blank">
+          <img src="https://images.genius.com/4ded3c42fcf0278b86d6b18312460c48.1000x1000x1.jpg" class="w3-hover-opacity" alt="Salmon" style="width:100%"></a>
+      <h3>Perfect stranger</h3>
+      <p>by Jonas Blue ft. JP.Cooper</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="https://www.youtube.com/watch?v=RYyf0ZVFpWE" target="_blank">
+          <img src="http://songmoi.vn/sites/default/files/dien_may_xanh_anh_chinh.jpg?1481066552" class="w3-hover-opacity" alt="Sandwich" style="width:100%" height = 272></a>
+      <h3>Điện máy xanh advertisement song</h3>
+      <p>by blue people</p>
+    </div>
+    <div class="w3-quarter">
+      <a href="https://www.youtube.com/watch?v=zmn5KcikEvI" target="_blank">
+          <img src="http://zmp3-photo.d.za.zdn.vn/covers/4/c/4c99c999e0983f314e104c5821c48193_1299729786.jpg" class="w3-hover-opacity" alt="Croissant" style="width:100%" height = ></a>
+      <h3>Chênh vênh</h3>
+      <p>by Lê Cát Trọng Lý</p>
+    </div>
+  </div>
+
+   <div class="w3-row-padding w3-padding-16 w3-center " id="food">
+    {% for music in music_list %}
+
+     <div class="w3-quarter" >
+          <a href= "{{ music.link }}"  target="_blank">
+             <img src= "{{ music.image }}" class="w3-hover-opacity "alt"Croissant" style="width:100%" height = 272 ></a>
+          <h3>{{ music.songname }}</h3>
+          <p>by {{ music.artists }}</p>
+
+
+     </div>
+     {% endfor %}
+   </div>
+
+ </div>
+
+  <!-- Pagination -->
+  <div class="w3-center w3-padding-32">
+    <ul class="w3-pagination">
+      <li><a class="w3-black" href="#">1</a></li>
+      <li><a class="w3-hover-black" href="#">2</a></li>
+      <li><a class="w3-hover-black" href="#">3</a></li>
+      <li><a class="w3-hover-black" href="#">4</a></li>
+      <li><a class="w3-hover-black" href="#">»</a></li>
+    </ul>
+  </div>
+
+  <hr id="about">
+
+  <!-- About Section -->
+  <div class="w3-container w3-padding-32 w3-center">
+    <h3>About Me, The Poor Man</h3><br>
+    <img src="http://hairetien.com/uploads/posts/t/l-7075.jpg" style="display:block;margin:auto" width="800" height="533">
+    <div class="w3-padding-32">
+      <h4><b>I am Who I Am!</b></h4>
+      <h6><i>With no money</i></h6>
+      <p>Just me, myself and I, finding high-paid but light job </p>
+    </div>
+  </div>
+  <hr>
+
+  <!-- Footer -->
+  <footer class="w3-row-padding w3-padding-32">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>1234</p>
+      <p>Powered by <a href="http://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="https://pbs.twimg.com/profile_images/568214196244869121/etTphytM.jpeg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Mainstream</span><br>
+          <span>List of mainstream music</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="http://images.8tracks.com/cover/i/000/363/864/art-coachella-feathers-indie-Favim.com-431558-1784.jpg?rect=0,3,894,894&q=98&fm=jpg&fit=max" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Indie</span><br>
+          <span>List of indie music</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="w3-third w3-serif">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Calvin Harris</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Taylor Swift</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Coldplay</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Tom Odell</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Nightfall</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Le Cat Trong Ly</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Imagine Dragons</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Cam</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">Ngot</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">eyes</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">no1</span>
+        <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">flow</span> <span class="w3-tag w3-dark-grey w3-small w3-margin-bottom">hits</span>
+      </p>
+    </div>
+  </footer>
+
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidenav
+function w3_open() {
+    document.getElementById("mySidenav").style.display = "block";
+}
+
+function w3_close() {
+    document.getElementById("mySidenav").style.display = "none";
+}
+</script>
+</div>
+</body>
+</html>
